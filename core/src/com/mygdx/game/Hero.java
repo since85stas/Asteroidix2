@@ -43,10 +43,10 @@ public class Hero {
             if (Gdx.input.getX() > position.x + 32) {
                 position.x += speed;
             }
-            if (Gdx.input.getY() < position.y + 32) {
+            if (720 - Gdx.input.getY() < position.y + 32) {
                 position.y += speed;
             }
-            if (Gdx.input.getY() > position.y + 32) {
+            if (720 - Gdx.input.getY() > position.y + 32) {
                 position.y -= speed;
             }
         }

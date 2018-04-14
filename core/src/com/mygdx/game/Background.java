@@ -12,7 +12,7 @@ public class Background {
 
         public Star() {
             position = new Vector2(MathUtils.random(0,1280),MathUtils.random(0,720));
-            speed = MathUtils.random(0.5f,3f);
+            speed = MathUtils.random(0.5f,2f);
         }
 
         public void update() {
@@ -20,7 +20,7 @@ public class Background {
             if (position.x < -20) {
                 position.x =1280;
                 position.y = MathUtils.random(0,720);
-                speed = MathUtils.random(0.5f,3f);
+                speed = MathUtils.random(0.5f,2f);
 
             }
         }
@@ -42,9 +42,12 @@ public class Background {
     public void render(SpriteBatch batch){
         batch.draw(textureSpace,0,0);
         for (int i=0;i<stars.length;i++){
-            batch.draw(textureStar,stars[i].position.x,stars[i].position.y);
+            float scale = stars[i].speed /2.0f ;
+            if (MathUtils.random(0,300) < 2) {
+                scale *= 1.8f;
+            }
+            batch.draw(textureStar,stars[i].position.x,stars[i].position.y,6,6,12,12,scale,scale,0,0,0,12,12,false,false);
         }
-
     }
 
     public void update() {
